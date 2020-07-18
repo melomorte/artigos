@@ -1,0 +1,286 @@
+O QUE É NEXESSÁRIO PARA RESOLVER UM CRACKME SEM ENROLAÇÃO E SEM MÃO BEIJADA.
+
+Objetivo: Mostrar para leigos basicamente e resumidamente o caminho para resolver um crack.me.
+
+Atenção: Este não é um artigo cientifico, porém também não é uma receita de bolo, ao longo deste artigo é expostos 
+conhecimentos necessarios para que voce consiga resolver um crack.me sozinho, foi pensado para pessoas que nunca tiveram contato
+com engenharia reversa ou programação na vida e mostra oque é necessário saber para fazer reverse em crackmes.
+
+Requisitos: Saber ler.
+
+------------------------------------------------------------------------------------------------------------------
+SE ACOSTUMANDO AO AMBIENTE.
+
+	A partir de agora só veremos coisas em low level, então para deixa-lo acostumado ao ambiente,
+iremos começar do basico e ir progredindo aos poucos.
+
+Aquitetura de Computadores.
+
+	Antes de tudo devemos estar ciente do que é um Computador. um Computador é uma maquina que realiza calculos por meio
+de binarios(0´s e 1´s), que combinados em determinadas sequencias geram instruções que fazem com que realize algo. Não é
+Algo Facíl e muito menos indicado tentar traduzir ou escrever softwares diretamente em binarios.
+
+SISTEMAS DE NUMERAÇÃO
+
+	Agora é importante saber o que são "sistemas de numeração" ou "sistema numeral", são sequencias que ultilizam
+uma determinada quantidade de algarismos(símbolos) para representar qualquer numero. Os mais importantes são: decimal, hexadecimal, octal e binario.
+voce também pode criar seu proprio sistema numeral. abaixo segue a explicação basica de cada sistema mencionado e em seguida como converter tudo para binario,
+caso voce ainda tenha interesse em mandar um bilhete convidando seu computador para jantar.
+
+***
+
+decimal: o sistema decimal é o mais popular, geralmente se aprende na escola ou contando os dedos.. o sistema
+decimal se baseia em uma sequencia de 10(dez) algarismos(símbolos) - 0,1,2,3,4,5,6,7,8,9 - que combinados são capazes de representar qualquer numero existente.
+
+- 1.000.000 - um milhão em decimal.
+
+***
+
+hexadecimal: o sistema hexadecimal é o que voce precisa se familiarizar mais, pois é o mais usando na computação e tambem é o que mais verá nesse artigo. enfim.. 
+o sistemas hexadecimal se baseia em uma sequencia de 16(dezesseis) algarismos(símbolos) 10(dez) numeros
+ e 6(seis) letras - 0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F - que combinados são capazes de representar qualquer numero existente.
+ Como deve imaginar ou saber, este sistema é bem melhor para representar numeros extensos, que são bem comum na computação.
+
+ - F4240 - um milhão em decimal, geralmente os numeros em hexadecimal são representados com 0x(zero, X) na frente do numero, ficando assim - 0xF4240. 
+
+	Um Pessoal iniciante geralmente tem curiosidade do que vem depois do - F - então vamos lá, vou colocar uma representação em decimal para ficar mais facíl de entender.
+
+	(Decimal) - 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30...
+
+(Hexadecimal) - 0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F,10,11,12,13,14,15,16,17,18,19,1A,1B,1C,1D,1E,1F,20... e assim por diante, para mais informações peça ajuda ao seu professor de matemática ou pesquise no google.
+
+***
+
+Binario: o sistema binario como ja dito é baseado em uma sequencia de 2(dois) algarismos(símbolos) - 0,1 - que combinados são capazes de representar qualquer numero existente.
+
+- 11110100001001000000 - um milhão em binario. como pode ver a sequencia gerada é enorme, e por conta disso foram criadas as linguagems de programação.
+
+***
+
+Octal: O sistema Octal não será visto com muita frquencia neste artigo. ele é baseado em uma sequencia de 8(oito) algarismos(símbolos) - 0,1,2,3,4,5,6,7 - que combinados são capazes de representar qualquer numero existente.
+
+- 3641100 - Um milhão em octal.
+
+------------------------------------------------------------------------------------------------------------------
+UNIDADES DE MEDIDAS DIGITAIS.
+	Claramente existem varias unidades de medidas tecnologicas, desde BITS até TERABYTES. Porém não é o objetivo deste artigo, portanto
+iremos ver somente: BIT, BYTE, WORD e QWORD. claramente não irei me aprofundar em explicações, caso queira saber mais a fundo procure livros ou artigos focados em medidas. vamos nessa.
+
+BIT 	-	bit é uma abreviação para dígito binário (binary digit) em inglês, como sabe o computador lida puramente com bits ou binarios. representam desde o menor até o maior dado presente em um computador.
+
+BYTE 	-	1(um) Byte é formado por 8(oito) bits. assim como 100 centimetros, forma 1 metro. voce verá bastante isso em breve.
+
+WORD 	-	Uma WORD é um numero especifico de bits (16 BITS) que pode ser processado por um computador.
+
+DWORD	-	Uma DWORD é um numero especifico de bits (32 BITS) que pode ser processado por um computador, será mais visto ao decorrer do artigo.
+
+QWORD 	-	Uma QWORD é um numero especifico de bits (64 BITS) que pode ser processado por um computador.
+
+------------------------------------------------------------------------------------------------------------------
+CPU´S - PROCESSADORES.
+	CPU (Central Processing Unit), ou Processador para os intimos. Temos duas Arquiteturas bem famosas, a arquitetura CISC(COMPLEX INSTRUCTION SET COMPUTER), e a arquitetura RISC(REDUCED INSTRUCTION SET COMPUTER),
+  Obviamente cada uma tem um proposito geral especifico, não vou me aprofundar em arquitetura de processadores, pois não é o objetivo.
+  Adiante será apresentado as principais caracteristicas de ambas arquiteturas e logo após vamos apresentar o que há dentro delas.
+
+ARQUITETURA CISC: Como o proprio nome sugere, é uma arquitetura voltada para operações complexas, ou seja é extremamente versatil. possui micro-programação(conjunto de codigos gravados no processador),
+apesar de ser uma otima arquitetura ela perde em praticidade para a arquitetura RISC, que será explicada adiante, mas como já foi dito: "cada uma tem um proposito geral especifico".
+
+ARQUITETURA RISC: Assim como CISC, RISC tem um nome bem sugestório. a arquitetura RISC não possui micro-programação, ou seja, o hardware quem executa as instruções, e como o nome diz, possui poucas instruções.
+daria para encher um livro só sobre essas arquiteturas e para nossa alegria muita gente ja fez isso, então sugiro que pesquise algum legal.
+
+ARQUITETURA CISC vs. ARQUITETURA RISC: sendo sincero, ja existem muitos artigos contra uma e a favor da outra.. então deixo que voce mesmo tire suas conclusões, leia artigos sobre. em geral a arquitetura RISC é mais rapida em determinadas situações e mais lenta em outras. Porém também existem as arquiteturas hibridas que juntam ambas as arquiteturas.
+
+POR DENTRO: Dentro de um processador temos diferentes componentes, claramente não é possivel colocar detalhadamente o que tem em um processador intel, então vou colocar a maquina de Von Veumann que é praticamente a base de todas as maquinas atuais.
+
+componentes:
+- MEMORIA.
+- UNIDADE DE CONTROLE(UC).
+- UNIDADE LOGICA E ARITMÉTICA(ULA) - ARITMETIC AND LOGIC UNIT(ULA).
+- DISPOSITIVOS DE ENTRADA E SAÍDA(E/S) - INPUT/OUTPUT(I/O).
+
+	Agora que vimos o basico do basico de arquitetura, vamos entrar na memoria, que é o componente mais importante para nós. como sabemos 
+um computador possui alguns tipos de memoria, entre elas: Memoria RAM, ROM, CACHE, FLASH e a mais importante para nós, os 
+REGISTRADORES, os registradores ficam dentro da cpu, e são as memorias mais rapidas do computador e por consequencia, as mais caras 
+tambem.
+	Temos registradores de 8, 16, 32, 64 e 128 bits. Vamos focar apenas no de 32 e 16 bits. Após essa breve explanação iremos partir
+para assembly(intel), então vamos Nessa!
+	em 32bit temos 8 registradores de uso geral que são:
+- EAX: extended acumulator.
+- ECX: extended pointer.
+- EDX: extended data.
+- EBX: extended base.
+- ESP: extended stack pointer.
+- EBP: extended base pointer.
+- ESI: extended source index.
+- EDI: extended destination index.
+
+	Os nomes são auto explicativos, porém se voce estiver pedido fique tranquilo, pois em breve tudo irá se encaixar. como pode ver, 
+todos os registradores de 32bit apresentados acima possuem 'extended', na frente, isso ocorre pois são registradores de 32bits, os de
+16bits, serão mostrados a seguir perceba a diferença;
+
+- AX: acumulator.
+- CX: pointer.
+- DX: data.
+- BX: base.
+- SP: stack pointer.
+- BP: base pointer.
+- SI: source index.
+- DI: destination index.
+
+	Veja que registradores de 16bits não possuem extended no nome. Lembra que anteriormente vimos unidades de medidas digitais? 
+pois bem,registradores são usados para guardar instruções e realizar operações do processador, e como sabemos, 
+registradores são as memorias mais rapidas por estarem dentro do precessador e tambem são as mais caras, por cconta disso 
+cada registrador possui um tamanho fixo para guardar as intruções.
+	Registradores de 16bit possuem uma WORD de tamanho. Registradores de 32bits possuem uma 
+DWORD(DOUBLE WORD), de tamanho e registradores de 64bits possuem uma QWORD(QUAD WORD), de tamanho fixo.
+	Se desejar, voce pode realizar operações com apenas 8 ou 16bits em processadores de 32bits e o mesmo ocorre com os outros, mas
+não confunda, Registradores de 64bits podem realizar operações de 32bits, mas registradores de 32bits não podem realizar operações de 
+64bits, isso é logica!
+	agora que vimos os registradores gerais de 16 e 32bits, vamos ver o registrador EIP e a STACK. O registrador EIP é usado para 
+indicar a proxima instrução que esta esperando na stack para ser executada. a STACK por sua vez, é a pilha de instruções, se não sabe 
+como funciona uma pilha, pesquise  sobre estruturas de dados. A pilha senpre cresce para cima, ou seja, a primeira instrução a entrar, 
+será a primeira a sair(first in, first out).
+
+-------------------------------------------------------------------------------------------------------------------------------------
+ASSEMBLY
+	agora que vimos sobre arquitetura podemos ir para o assembly. é imortante dizer que escrever um codigo assembly, não é o mesmo que 
+analisar um codigo assembly.
+	ao escrever codigos em assembly voce esta lidando com os registrados diretamente. Como toda linguagem de programação compilada gera
+um cdigo em assembly, é extremamente importante que voce conheça as funções mais comuns da linguagem, caso sinta interece em aprender
+assembly mais profundamente, recomendo que leia os guias da intel. é importante informar que assembly possui algumas sintaxes 
+diferentes, entre elas as mais famosas são (intel e AT&T), vamos aprender a sintaxe intel. abixo vai uma explicação da sintaxe e a 
+descrição basica dos registradores mais usados em assembly. em assembly uma instrução basicas é composta por 4(quatro) partes - label, 
+mnemonico, operandis e comentario.
+
+SINTAXE INTEL: INSTRUÇÃO, DESTINO, FONTE
+
+EXEMPLO EM INSTRUÇÃO: MOV EAX, EBX - Copia o cnteudo do registrador EBX para o registrador EAX.
+
+INSTRUÇÕES COMUNS:
+- MOV:		copia o conteudo de um registrador em outro.
+- PUSH:		empurra o valor do registrador para a pilha.
+- POP:		retira o valor da pilha.
+- ADD:		faz soma.
+- SUB:		faz subtração.
+- XOR:		exclusive or.	- logica booleana, não será explicado aqui.
+- INC:		incrementa um registrador.
+- DEC:		decrementa um registrador.
+- IMUL:		faz multiplicação.
+- IDIV:		faz divisão.
+- JMP:		faz um salto incondicional.
+- CMP:		compara dois registradoeres oara ver se são iguais.
+- TESTE: 	testa dois registradores e faz CALL.
+- CALL: 	chama uma instrução ou label.
+
+CODIGO EM ASSEMBLY QUE DIZ HEYY:
+
+***
+
+section .data:
+	msg db 'heey melomorte!' 0xa
+	len equ $ - msg
+
+
+section .text:
+
+global _start
+
+
+_start:
+	mov edx, len
+	mov ecx, msg
+	mov ebx, 1
+	mov eax, 4
+	int 0x80
+
+	mov eax, 1
+	mov ebx, 0
+	int 0x80
+
+***
+
+	Como pode ver um codigo em assembly possui duas section, uma .text e uma .data. na section .data ficará guardado os dados
+do programa que no caso são as variaveis.
+E tambem temos a section .text que guarda todo o codigo do programa. _start: - é um label, label são usados para criar loops e 
+funçoes.
+	bom isso é o suficiente para voce conseguir analisar um crackme simples, mais uma vez deixo claro que isso aqui não é um livro, 
+curso ou treinamento. Este artigo tem a intenção de te dar um norte para quebrar crackmes simples, porém, se voce aprofundar e não se
+limitar a poucos artigos, com toda certeza será capaz de quebrar qualquer software.
+-------------------------------------------------------------------------------------------------------------------------------------
+ARQUIVO PE
+	Arquivo PE (Portable executable),  Um arquivo pe, é o formato do arquivo executavel do windows atualmente usado nos programas.
+  o arquivo pe inclui os arquivos EXE, DLL, OCX, CPL e SYS.
+sempre que voce abrir um executavel ou um binario em qualquer um desse formatos a cima, voce poderá reconhecer as estruturas do arquivo 
+PE e suas seções. Recomendo que se deseja fazer reversing ou analise de malware, estudar a fundo este formato. para o lunix temos o formato, ELF	
+, porém não será abordado aqui neste artigo. ABAIXO segue as seções do arquivo PE.
+
+ESTRUTURA DE UM ARQUIVO PE:
+-	STUB DO MS-DOS.
+	-	cabeçalho do MS-DOS.
+	-	aplicação DOS 16-bits.
+-	CABEÇALHO DE ARQUIVO.
+	-	cabeçalho COFF.
+	-	campos basicos - opcional.
+	-	campos especificos - opcional.
+	-	diretorios de dados - opcional.
+-	CABEÇALHO DE SEÇÕES.
+-	SEÇÕES.
+	-	seção 0.
+	-	seção n.
+
+
+	Esta é a estrutura de um arquivo pe, não é algo extremamente complexo de se estudar, porém esse não é o objetivo, posteriormente, 
+posso publicar um artigo detalhado sobre arquivos PE.
+---------------------------------------------------------------------------------------------------------------------------------------
+LINGUAGEM C
+	A linguagem C é uma das mais poderosas linguagens de programação, por conta disso vou ensinar a sintaxe e como criar um process usando a API do windows, 
+  antes devemos explicar oque é Um process.
+	Process() - um processo é basicamente um programa em execução, um processo sempre é criado com uma thread() - uma thread é a linha de execução de um process().
+	para que voce possa criar aplicações no windows ou manipular API's, é recomendado ler a documentação do MSDN.
+
+TIPOS DE DADOS:
+	- INT: um numero inteito - 777;
+	- CHAR: um caractere - M;
+	- STRING: uma sequencia de caracteres; - não é um tipo - {'m','e','l','o','m','o','r','t','e'};
+	- FLOAT: numeros com pontos flutuantes - {10.0333};
+	- DOUBLE: numeros com pontos flutuantes - {10.033999993};
+
+SINTAXE:
+***
+					
+//isto é um comentario em c.									
+#include <stdio.h>	//bilbioteca de entrada e saida padrão em c.
+
+int main(){			//função main é a mais importante.
+	int idade = 18;	//declaração e inicialização de um int. todo comando deve ser finalizado com ; (ponto e virgula);
+	char nick[10] = {"Melomorte"};	//declaração de uma string de caracteres;
+
+	printf("nickname: %s\nidade: %d\n", nick, idade);	//printf faz a saida de vcalores na tela.
+
+	return(0);	//se tudo ocorrer bem ele retorna 0;
+}
+
+***
+
+----------------------------------------------------------------------------------------------------------------------------------------
+FERRAMENTES
+	Agora que ja vimos todo o necessario para analizar, desde o começo, vamos para as ferramentas que foram criadas para facilitar todo
+o processo para resolver um crackme. Usaremos tres aplicativos basicos - X32DBG - HEXDUMP - DIE - abaixo irei explicar o que cada um faz
+e lhe darei a missão de resolver o seu primeiro Crack.me.
+
+HEXDUMP - essa é a mais facil de usar, voce vai literalmente abrir o binario, ver tudo em hexa e procurar as strings que possam ser a senha.
+
+DIE - não é tão facil assim de usar, mas voce vai abrir o binario nele e vai analisar as chamadas as dlls, hexadecimal e binario, strings entre outros. 
+é uma poderosa ferramenta.
+
+X32DBG - é um debugger, se voce curte desafios, lhe aconselho a usar o essa ferramenta, tudo que foi explicado aqui da para voce usar, e lhe lanço o desafio 
+de aprender a usar esta ferramenta sozinho. em breve farei um artigo detalhado sobre como usar esta ferramenta.
+----------------------------------------------------------------------------------------------------------------------------------------
+ONDE ENCONTRAR CRACKMES?
+	existem milhares de sites para encontrar crackmes, o melhor site é o crackmes.one - para poder descomactar um crackme é necessario colocar a senha: crackme.one
+----------------------------------------------------------------------------------------------------------------------------------------
+AGRADECIMENTOS.
+
+	bom senhores, espero que tenha ficado claro que este artigo foi direcionado á pessoas que nunca viram um codigo na vida. é a introdução de uma introdução, 
+  porém se voce pegar todos os topicos apresentados voce será capaz de fazer reverse em muitos softwares de alto nivel, como eu disse "não é um artigo cientifico mas 
+  tambem não é uma receita de bolo". o caminho esta ai galera, peço perdão pelos erros pois esse é o primeiro "artigo" que eu escrevi.
