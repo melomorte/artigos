@@ -1,4 +1,4 @@
-O QUE É NEXESSÁRIO PARA RESOLVER UM CRACKME SEM ENROLAÇÃO E SEM MÃO BEIJADA.
+O QUE É NECESSÁRIO PARA RESOLVER UM CRACKME SEM ENROLAÇÃO E SEM MÃO BEIJADA.
 
 Objetivo: Mostrar para leigos basicamente e resumidamente o caminho para resolver um crack.me.
 
