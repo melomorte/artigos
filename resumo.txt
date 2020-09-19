@@ -1,0 +1,280 @@
+*****************************************************************************************************
+RESUMO.
+LIVRO:ARQUITETURA E ORGANIZAÇÃO DE COMPUTADORES.
+AUTOR:WILLIAN STALLINGS.
+NOME:KAYQUE S.MELO.
+*****************************************************************************************************
+
+PARTE 1:
+
+	ARQUITETURA X ORGANIZAÇÃO.
+		arquitetura pode ser entendido como high level, ou em outras palavras  ambiente em que 
+		o programador tem acesso, como por exemplo instruções, calculos diferentes entre outros, 
+		ja a organização pode ser interpretada como high level, ou a parte que não é visivel para 
+		programador, como por exemplo o hardware, memorias, instruções de maquina, etc...
+		claramente, as diferenças são bem mais concisas, mas até os dias atuais ainda é bem discutido
+		por exemplo, uma arquitetura pode se manter em ativa, por muitos anos, ja uma organização
+		pode se tornar obsoleta em poucos meses(dependendo da arquitetura em si).
+	**************************************************************************************************
+	OVERHEAD = UM PREÇO ASE PAGAR POR ALGO OU SOBRECARGA.
+	**************************************************************************************************
+	ESTRUTURA: o modo como os componentes são inter-relacionados.
+	FUNÇÃO: a operação individual de cada componente como parte da estrutura.
+	**************************************************************************************************
+	FUNÇÕES BASICAS DE UM COMPUTADOR.
+		um computador deve possuir 4 funções basicas e gerais que são:
+		PROCESSAMENTO DE DADOS,
+		ARMAZENAMENTO DE DADOS,
+		MOVIMENTAÇÃO DE DADOS,
+		CONTROLE.
+	**************************************************************************************************
+	COMPONENTES BASICOS ESTRUTURAIS PRINCIPAIS.
+	UNIDADE CENTRAL DE PROCESSAMENTO(CPU): mais conhecido com processador. 
+	MEMORIA PRINCIPAL: armazena dados.
+	E/S: move dados entre o computador e seu ambiente externo.
+	INTERCONEXÃODO SISTEMA: algum mecanismo que oferece comunicação entre CPU, memoria principal e E/S.
+	**************************************************************************************************
+	PRINCIPAIS COMPONENTES DA CPU.
+	UNIDADE DE CONTROLE: controla a operação da CPU e portanto do computador.
+	UNIDADE ARITMETICA E LOGICA: realiza as funções de processamento de dados do computador.
+	REGISTRADORES: oferece armazenamento interno à CPU.
+	INTERCONEXÃO DA CPU: algum mecanismo que oferece comunicação entre unidades de controle, ALU
+	e registradores.
+	**************************************************************************************************
+	GERAÇÃO APROXIMADA DE COMPUTADORES:
+	1 - 1946 - 1957.
+	2 - 1958 - 1964.
+	3 - 1965 - 1971.
+	4 - 1972 - 1977.
+	5 - 1978 - 1991.
+	6 - 1991 - Dias atuais.
+	**************************************************************************************************
+	DUAS TECNICAS PARA A EXECUÇÃO PARALELA DE INSTRUÇÕES DENTRO DE UM PROCESSADOR.
+	PIPELINE: Um pipeline funciona como uma linha de montagem em uma fábrica, permitindo que
+	diferentes estágios de execução de diferentes instruções ocorram ao mesmo tempo pelo pipeline.
+
+	SUPERESCALAR: Uma técnica superescalar basicamente permite múltiplos pipelines dentro de um único 
+	processador, de modo que as	instruções que não dependem umas das outras possam ser executadas em 
+	paralelo.
+	**************************************************************************************************
+	Com o passar do tempo os processadores parrasam a enfrentar um problema que era lidar com a
+	dissipação de potencia, uma alternativa foi adicionar mais processadores a um unico chip
+	compartilhando da mesma memoria cache, ou seja, um processador passou a ter mais cores.
+	**************************************************************************************************
+	SISTEMAS EMBARCADOS E ARQUITETURA ARM.
+	sistema embarcado. Uma combinação de hardware e software de computador, e talvez partes adicionais 
+	mecânicas e outras, projetada para realizar uma função dedicada. Em muitos casos, os sistemas
+	embarcados fazem parte de um sistema ou produto maior, assim como no caso de um sistema de freios
+	ABS em um carro.
+	**************************************************************************************************
+	VELOCIDADE DO CLOCK E INSTRUÇÕES POR SEGUNDO.
+	O CLOCK DO SISTEMA As operações realizadas por um processador, como busca e decodificação de uma
+	instrução, realização de uma operação aritmética e assim por diante, são controladas por um clock
+	do sistema. 
+	Normalmente, todas as operações começam com o pulso do clock. Assim, no nível mais fundamental, a 
+	velocidade de um processador é ditada pela frequência de pulso produzida pelo clock, medida em 
+	ciclos por segundo, ou Hertz(Hz).
+	**************************************************************************************************
+	LISTA DE CARACTERISTICAS DESEJAVEIS EM U PROGRAMA DE BENCHMARK:
+	- Escrito em uma linguagem de alto nivel para ser portavel.
+	- Representa um estilo particular de um tipo de programação.
+	- Pode ser medidio cm facilidade.
+	- Tem uma ampla distribuição.	
+	**************************************************************************************************
+	LEI DE AMDAHL.
+	Basicamente um teste cm um unico processador vs alguns outros processadore, se faz um calculo
+	e defini o desempenho e melhoria.
+	A lei de Amdahl, também conhecida como argumento de Amdahl, é usada para encontrar a máxima 
+	melhora esperada para um sistema em geral quando apenas uma única parte do mesmo é melhorada. 
+	Isto é frequentemente usado em computação paralela para prever o máximo speedup teórico usando
+	múltiplos processadores.
+	**************************************************************************************************
+PARTE 2.
+	**************************************************************************************************
+	ARQUITETURA DE VON NEUMAN,
+	Basicamente todos os computadores modernos são baseados nessa arquitetura que cosiste em:
+	- Dados e instruções são armazenados em uma unica memoria de leitura e escrita.
+	- O conteudo dessa memoria é endereçavel por local podendo conter um dado ou uma instrução.
+	- A execução ocorre de forma sequencial(exceto que altere a ordem)de uma instrução seguinte.
+	A Arquitetura de von Neumann é uma arquitetura de computador que se caracteriza pela possibilidade
+	de uma máquina digital armazenar seus programas no mesmo espaço de memória que os dados,
+	podendo assim manipular tais programas.
+	**************************************************************************************************
+	FUNÇÃO DO COMPUTADOR.
+	A função basica de um computador é a de executar um programa.
+	ele busca na memoria a instruçao e executa, conhecidos como:
+	- Ciclo de busca.
+	- Ciclo de execução.
+	**************************************************************************************************
+	BUSCA E EXECUÇÃO DE INSTRUÇÕES.
+	Um computador busca na memoria uma instruçao a ser executada que é espicificada pelo registrador
+	PC, após executar a instrução, ele incrementa o registrador PC, que definira qual a proxima
+	instrução deve ser buscada na memoria para a execução.
+	Após isso a inswtruçõa é lida e carrregada no registrador IR que define qual será o tipo de 
+	instrução que será executada, em geral são quatro categorias de instrução basicos:
+	- Processador-Memoria: os dados podem ser transferidos do processador para a memória ou da memória
+	para o processador.
+	- Processador-E/S: os dados podem ser transferidos de ou para um dispositivo periférico, 
+	transferindo entre o processador e um módulo de E/S.
+	- Processamento de dados: o processador pode realizar alguma operação aritmética ou lógica sobre os
+	dados.
+	- Controle: : uma instrução pode especifcar que a sequência de execução seja alterada. Por exemplo,
+	o processador pode buscar uma instrução do local 149, que especifca que a próxima instrução seja do 
+	local 182.
+	O processador se lembrará desse fato defnindo o contador de programa como 182.
+	Assim, no próximo ciclo de busca, a instrução será apanhada do local 182, em vez de 150.
+	**************************************************************************************************
+	INTERRUPÇÕES.
+	Praticamente todo computador oferece um mecanismo para gerar interrupções no ciclo de 
+	execução de um processador, as interrupções são inicialmente uma forma de melhoria no desempenho 
+	do processador, mas as vezes podem causar danos aos mesmos. Algumas classes de interrupções são:
+	- Falha de hardware: Gerada por uma falha com falta de energia ou falta de paridade de memoria.
+	- Programa: Gerada por alguma condição que ocorre como resultado da execução de uma instrução, 
+	como o overﬂow aritmético, divisão por zero, tentativa de executar uma instrução de máquina
+	ilegal ou referência fora do espaço de memória permitido para o usuário.
+	- Timer: Gerada por um timer dentro de um processo, isso permite que OS realize certas
+	funções regularmente.
+	- E/S: Gerada por um controladsor de E/S, para sinalizar o termino normal de uma operaçãoo para
+	sinalizar uma serie de condições de erro.
+	**************************************************************************************************
+	INTERRUPÇÕES E O CICLO DE INSTRUÇÃO.
+	Basicamente quando uma interrupção é gerada, o processadpr recebe um requisito para interromper
+	a instrução atual e executa a instrução que gera a interrupção, após finalizar a interruoção, 
+	ele retorna ao ciclo orirginal, somente o processador e o OS são responsaveis por retornarem ao 
+	ciclo execução normalmente ou suspender um ciclo de execução. Para acomodar as interrupções, 
+	um ciclo de interrupção é acrescentado ao ciclo de instrução.
+	**************************************************************************************************
+	INTERRUPÇÕES MULTIPLAS.
+	Vimos que interrupções podem ser requisitadas, porem enquqanto uma interrupção está sendo 
+	executada, outra interrupção pode ser requisitada, gerando multiplas interrupções, logicamene 
+	isto pode acarretar um um baixo desempenho na execução das instruções, uma alernativa para driblar 
+	isso, é desativando as interrupções do processador, fazendo com que as interrupções ocorram 
+	sequencialmente, ou não ocorram, um ponto negativo é que isso pode acarretar congestionamento e 
+	se torna imnpossivel determinar o nivel de prioridade de cada interrupção, por exemplo uma analogia
+	abaixo:
+	"Temos uma venida movimentada com um cruzamento, uma ambulancia carregando um fer4ido em estado 
+	critico, precisa rapidamente furar o transito, mas os carros não dão caminho para a ambulancia poder
+	chegar rapidamente ao hospital, isso porque a sirene está desligada", o mesmo ocorre com um 
+	computador, suponha que uma interrupção de entrada e saida precise ser executada, mas outra 
+	interrupção esta sendo executada, pode gerar um acumulo desnecessario, uma segunda solução para
+	lidar com multiplas interrupções seria, definir prioridades para as interrupções, assim uma
+	interrupção de prioridade mais alta sempre seria executada primeiro e quando chegasse ao final, 
+	o processador retormaria a interrupção de menor prioridade e após a mesma ser finalizada, voltaria
+	e continuaria a executar a instrução original.
+	**************************************************************************************************
+	FUNÇÃO E/S.
+	Um módulo de E/S (por exemplo, um controlador de disco) pode trocar dados diretamente com o 
+	processador.
+	Assim como o processador pode iniciar uma leitura ou escrita com a memória, designando o 
+	endereço de um local específico, o processador também pode ler ou escrever dados em um módulo de 
+	E/S. 
+	Nesse último caso, o processador identifica um dispositivo específico que é controlado por um 
+	módulo de E/S em particular. 
+	Assim, poderia correr uma sequência de instruções, com instruções de E/S em vez de instruções de 
+	referência à memória.
+	Em alguns casos, é desejável permitir que as trocas de E/S ocorram diretamente com a memória.
+	Nesse caso, o processador concede a um módulo de E/S a autoridade de ler ou escrever na memória,
+	de modo que	a transferência entre E/S e memória pode ocorrer sem prender o processador. 
+	Durante essa transferência,	o módulo de E/S emite comandos de leitura ou escrita à memória, 
+	tirando do processador a responsabilidade pela troca. Essa operação é conhecida como acesso direto
+	à memória (DMA, do inglês direct memory access).
+	**************************************************************************************************
+	ESTRUTURA DE INTERCONEXÃO.
+	Um computador é uma rede de modulos basicos e por conta disso é necessário um meio ou caminho para
+	conectar todos esses modulos, esse meio ou caminho é chamado de estrutura de interconexão.
+	Tipos de trocas que são necessárias e principais formas de entrada e saída para cada tipo de 
+	modulo:
+	- Memória: Geralmente um modulo de memoria consiste em N palavras do mesmo tamanho, cada palavra 
+	recebe um endereço numerico exclusivo, a palavra pode ser lida ou escrita na memoria, o local 
+	para operação é especificado por um endereço.
+	- Modulo de entrada e saída: Por um ponto de vista interno a E/S é funcionalmente semelhante á 
+	memoria, podendo realizar duas operações: Leitura e Escrita, um modulo de entrada e saída pode 
+	controlar mais de um dispositivo externo. Um modulo de E/S pode ser capaz de enviar sinais de 
+	interrupção ao processador.
+	- Processador: O processador le instruções e dados, escreve dados e usa sinais de controle para 
+	controlar a operação geral do sistema, tambem recebe sinais de interrupção.
+	**************************************************************************************************
+	TIPOS DE TRANSFERÊNCIAS:
+	- Memoria/Processador: O processador le uma instrução ou uma unidade de dados da memoria.
+	- Processador/Memoria: O processador escreve uma unidade de dados na memoria.
+	- Entrada e Saída/Processador: O processador le dados de E/S por meio de um modulo de E/S.
+	- Processador/Entrada e Saída: O processador envia dados para um dispositivo de E/S.
+	- E/S ou para Memoria: Para esses dois casos o modulo de E/S pode ultilizar DMA.
+	**************************************************************************************************
+	INTERCONEXÃO DE BARRAMENTO.
+	Um barramente consiste em uma linha de comunicação que conecta dois ou mais dispositivos, a 
+	caracteristica chave é que ele é um meio de transmissão compartilhado, somente um dispositivo pode
+	realizar uma transmissão por vez, pois se mais de um sinal for transmitido, eles se sobrepõem
+	resultando em uma diwstorção de sinal. 
+	Uma linha de barramento transmite binarios(0s e 1s), que forma uma sequencia e geram um sinal 
+	valido para outro dispositivo receptor.
+	Um barramento pode ser medido o numero de linhas em bits, por exemplo: Um barramento de 8bits, 
+	possui 8 linhas de transmissão. Um barramento de 16bits possui 16 linhas e assim por diante...
+	Os sistemas de computação contêm diversos barramentos diferentes, que oferecem caminhos entre 
+	os componentes em diversos níveis da hierarquia do sistema de computação.
+	Um barramento que conecta os principais componentes do computador (processador, memória, E/S) 
+	é chamado de barramento do sistema. 
+	As estruturas de interconexão de computador mais comuns são baseadas no uso de um ou mais 
+	barramentos do sistema.
+	**************************************************************************************************
+	ESTRUTURA DE BARRAMENTO.
+	Um barramento do sistema consiste, normalmente, em cerca de 50 a centenas de linhas separadas.
+	Cada linha recebe um significado ou função em particular. Embora existam muitos projetos de 
+	barramento diferentes, em qualquer barramento as linhas podem ser classificadas em três grupos
+	funcionais: 
+	- Linhas de dados.
+	- Endereço.
+	- Controle.
+	Além disso, pode haver linhas de distribuição de potência, que fornecem energia aos módulos 
+	conectados.
+
+	LINHAS DE DADOS: Oferecem um caminho para movimentação de dados entre os modulos do sistema.
+
+	LINHAS DE ENDEREÇO: São usadas para designar a origem ou o destino dos dados no barramento de 
+	dados.
+
+	LINHAS DE CONTROLE: são ultilzadas para controlar o acesso e uso das linhas de dados e endereço.
+	Tipicas linhas de controle.
+	- Escrita de memoria: Faz com que os dados no barramento sejam escritos no local endereçado.
+	- Leitura de memoria: Faz com que os dados do local endereçado sejam colocados no barramento.
+	- Escrita de E/S: Faz com que dados no barramento sejam enviados para a porta de E/S endereçada.
+	- Leitura de E/S: Faz com que os dados da porta de E/S endereçada sejam colocados no barramento.
+	- ACK de transferencia: Indica que dados foram aceitos no barramento ou colocados nele.
+	- Bus request: Indica que o modulo precisa obter controle do barramento.
+	- Bus grant: Indica que um modulo solicitante recebeu controle do barramento.
+	- Interrupt request: Indica que a interrupção esta pendente.
+	- ACK de interrupção: Confirma que a interrupção pendente foi reconhecida.
+	- Clock: é usado em operações de sincronização.
+	- Reset: Inicializa todos os modulos.
+	**************************************************************************************************
+	ELEMENTOS DO PROJETO DE BARRAMENTO.
+	As linhas de barramentos podem serseparadas em dois tipos genericos:
+	- Dedicado: É atribuida permanentemente a uma função ou a um subconjunto fisico de componentes de
+	computador.
+	- Multiplexado: As mesmas linhas podem ser usadas para transferencia de dados de escrita e leitura.
+	**************************************************************************************************
+	- Temporização Sincrona: A ocorrencia de eventos no barramento é determinada por um clock.
+	- Temporização Assincrona: a ocorrência de um evento em um barramento segue e depende da
+	ocorrência de um evento anterior.
+	**************************************************************************************************
+	PCI = Peripheral Component Interconnect.
+	**************************************************************************************************
+	COMANDOS PCI.
+	- Interrupt Acknowledge (conf rmação de interrupção).
+	- Special cycle (ciclo especial).
+	- I/O Read.
+	- I/O Write.
+	- Memory Read.
+	- Memory Read Line.
+	- Memory Read Multiple.
+	- Memory Write.
+	- Memory Write and Invalidate.
+	- Configuration Read.
+	- Configuration Write.
+	- Dual Adress Cycle.
+	**************************************************************************************************
+	ARBITRAÇÃO.
+	O barramento PCI ultiliza um esquema de arbitração centralizado, sincrono, cada mestre tem um 
+	sinal de requisição(REQ) e concessão, ou grant (GNT).
+	**************************************************************************************************
+	16/09/2020 - 93
