@@ -1,0 +1,197 @@
+Introdução
+Para começar é necessário entender o que é Segurança da
+Informação, e para isso é necessário entender primeiro o que é
+Informação. Informação é o resultado do processamento, manipulação e
+organização de dados que represente um modificação no conhecimento
+do sistema humano, animal ou maquina. Uma Informação pode variar
+desde uma simples imagem tirada na rua, ate a senha de um servidor ou
+do seu cartão de credito. Claramente o valor da informação varia
+conforme o sujeito alvo, o contexto e o conteúdo de tal informação. Por
+exemplo: A senha do seu smartphone. Ela é de extrema importância para
+você, pois sem ela, não há como acessar o seu smartphone, porém, a
+mesma não possui valor algum para um estudante asiático do outro lado
+do planeta (a não ser que ele queira acessar o seu smartphone sem sua
+permissão).
+Seguindo agora um novo exemplo, vamos supor que você trabalhe
+em uma grande empresa bancaria no setor administrativo e você lide
+diretamente com o sistema central, onde ficam guardada todas as
+planilhas e informações, agora imagine que um grupo terrorista esteja de
+olho nessa mesma empresa, imagine que sua empresa não possui uma
+politica de segurança implantada, chega sua hora de almoçar e você pega
+o elevador para sair do prédio, encontra alguns colegas de trabalho dentro
+do elevador e começam a puxar assunto sobre a rotina da empresa, vocês
+estão empolgados e não notam que ali no elevador tem um individuo que
+vocês nunca viram lá antes, continuam conversando sobre a rotina da
+empresa, horário de entrada e horário de saída, o elevador para e o
+individuo que você nunca viu na vida esbarra em você, pede desculpas e
+segue seu caminho.. Você e seus colegas de trabalho resolve ir a um
+restaurante, almoçam e voltam pra empresa. Ao chegar na empresa você
+repara que o seu token de acesso não esta mais no seu bolso. Você pede
+para que o segurança libere sua passagem, ele já te conhece á anos e lhe
+concede acesso. Um tempo passa, você esta na sua casa e seu gerente
+liga desesperado dizendo que o banco foi assaltado e que os bandidoschegaram durante a troca de turno dos seguranças e que o token de
+acesso que eles usaram foi o seu. Seu gerente diz que você foi intimado a
+depor e que a empresa provavelmente não vai conseguir se recuperar do
+estrago causado. Um tempo passa novamente, o seguro nega o
+reembolso, a empresa fecha as portas, você é demitido e fica manchado
+no mercado para sempre.
+Isso tudo porque a sua empresa não possuía uma politica de
+segurança eficiente, que se preocupa em controlar o acesso de quem
+entra e quem sai o gerenciamento e proteção de dados e principalmente o
+treinamento de seus funcionários. E esse é o papel da segurança da
+informação dentro das empresas, garantir que a empresa tenha o mínimo
+de risco possível e que suas informações sigilosas (como por exemplo: a
+troca de turno dos funcionários ou o sistema de autenticação do acesso,
+entre outras que veremos em breve).
+A Segurança da Informação visa proteger e preservar conjuntos de
+informações que possuem um determinado valor para um determinado
+individuo, instituição ou entidade, fazendo com que informações
+confidenciais se encontrem com riscos de vazamentos reduzidos. A
+mesma possui cinco propriedades básicas que são elas: Confidencialidade,
+Integridade, Disponibilidade, Autenticidade e Legalidade.
+Abaixo segue uma breve descrição de cada propriedade citada:
+Confidencialidade: Confidencialidade é a propriedade da informação que
+o resguardo e proteção das informações dadas pessoalmente contra a sua
+revelação não autorizada, ou seja, garante que somente pessoas
+autorizadas tenham acesso a determinada informação.
+Integridade: É a manutenção e a garantia da precisão e consistência das
+informações durante todo seu ciclo de vida, ou seja, a integridade visa
+garantir que nenhuma informação seja alterada ou modificada
+indevidamente e sem autorização durante todo o seu ciclo de vida.
+Disponibilidade: Disponibilidade se preocupa para garantir que a
+informação esteja disponível para acesso em qualquer momento por
+pessoas autorizadas, por exemplo: Digamos que você queira acessar asinformações do seu cartão de credito, elas devem estar disponíveis á
+qualquer momento com sua integridade intacta.
+Autenticidade: Autenticidade é a certeza de que umas informações
+provem de fontes confiáveis e verdadeiras sem mutações ou percas, ou
+seja, serve para garantir que alguma informação seja correta, por
+exemplo: quando você quer sacar dinheiro no banco, você insere o cartão
+atm no terminal e coloca a senha para provar que é você mesmo. O ato de
+colocar a senha é o sistema de autenticação para que você possa sacar.
+Legalidade: Legalidade vem do conceito de que algo esta dentro da lei,
+seja expressamente ou implicitamente dentro da jurisdição, se o atributo
+estiver de acordo com as leis, diz-se que o mesmo é legal.
+Agora que tivemos uma breve explanação sobre os conceitos da
+Segurança da Informação e seus pilares, iremos abordar os conceitos por
+traz do Controle de Acesso, que é o objetivo central deste artigo.
+Antes de tudo, precisamos entender a definição de Controle de
+Acesso.
+Controle de Acesso é uma das partes mais importantes quando se
+trata de Segurança da Informação, pois visa gerenciar como os sujeitos
+interagem com os objetos. Os Sujeitos são entidades ativas (seres
+humanos, entidades, organizações, etc..), os Objetos são Basicamente as
+informações protegidas, infraestrutura interna, ou um simples acesso a
+um site (claramente os objetos não se resumem apenas a isso, mas para o
+nosso proposito esses exemplos são suficientes).
+A transferência de informações de um sujeito para um objeto é
+denominada Acesso, por exemplo, você quer pegar uma lata de
+refrigerante em uma maquina de refrigerante, para isso, você compra um
+ticket e o insere na maquina, após a maquina ler o ticket, você seleciona o
+refrigerante de seu gosto e a maquina retorna o seu pedido. Você é o
+sujeito, seu ticket é a informação e o leitor é o objeto. Ou seja, você só
+terá acesso ao refrigerante se você colocar o ticket na maquina.
+Uma definição um pouco mais técnica é que um sujeito é a entidade
+que altera informações ou dados armazenados dentro de um objeto. Ospapeis de objeto e sujeito pode mudar como duas entidades, como um
+programa e um banco de dados ou, um processo e um arquivo se
+comunicam para realizar uma tarefa.
+Agora que já lhes foi apresentado uma breve introdução aos
+conceitos gerais de Segurança da Informação, Informação e Controles de
+Acesso. Iremos aprofundar no tema central deste artigo: Controles de
+Acesso dentro da segurança da informação.Categorias do Controle de Acesso
+Como vimos anteriormente, os Controles de Acesso são necessários
+para manter e proteger a Confidencialidade, Integridade e disponibilidade
+de um determinado objeto.
+O termo Controle de Acesso engloba uma ampla variedade de
+Controles dentro de algumas categorias diferentes, dentre elas iremos
+analisar sete categorias que são especificadas no Certified Information
+Systems Security Professional Study Guide 2nd Edition (Guia da
+Certificação CISSP).
+Abaixo iremos abordar essas categorias e iremos dar exemplos de
+como são usadas.
+Controle de Acesso Preventivo: Muito utilizado para impedir atividade
+não autorizada, alguns exemplos de Controle Preventivo, incluem: cercas,
+fechaduras, biometria, armadilhas, iluminação, câmeras, alarmes,
+separação de funções, rotação de tarefas, dados de verificação, teste de
+penetração, métodos de controle, criptografia, auditoria, cartões
+inteligentes, retorno de chamadas, praticas de segurança, treinamento de
+conscientização de segurança e software de antivírus.
+Controle de Acesso Detetive: Esta categoria é muito utilizada para
+descobrir atividades indesejadas ou não autorizada como, por exemplo:
+invasões físicas ou ataques de engenharia social, também muito comum
+têm ataques a determinados serviços entre outros. Alguns exemplos de
+Controle de Acesso Detetive são: guarda de segurança, rotação de
+trabalho, cães de guarda, detectores de movimento, câmeras de
+segurança, férias obrigatórias, trilhas de auditoria, supervisão de usuários,
+investigação de incidentes e sistemas de detecção de intrusão.
+Controle de Acesso Corretivo: Esta categoria é implantada para Recuperar
+ou Restaurar sistemas que sofreram ocorrência de uma atividade
+indesejada ou não autorizada. O escopo do acesso de controle corretivoinclui: sistemas de detecção de intrusão, soluções antivírus, alarmes,
+armadilhas e politicas de segurança.
+Controle de Acesso de Dissuasão: Essa categoria de acesso de controle é
+implantada para desencorajar a violação das politicas de segurança.
+Alguns exemplos incluem: fechaduras, crachás de segurança, armadilhas,
+câmeras de segurança, avisos perceptíveis, alarme de invasão, separação
+de tarefas de trabalho, procedimentos de tarefa, treinamento de
+conscientização de segurança da informação, auditoria, criptografia e
+firewalls.
+Controle de Acesso de Recuperação: Esta categoria é de certa forma
+semelhante à categoria corretiva, porem visando mais o lado do sistema,
+o controle de acesso de recuperação visa restaurar e reparar, recursos,
+funções e capacidades após uma violação de politica de segurança da
+informação. Exemplos de controle de acesso de recuperação são: backups,
+cluster de servidor, software de autorização e sombreamento de banco de
+dados.
+Controle de Aceso de Compensação: Esta categoria visa servir como
+auxilio de outras categorias de controle ou para servir de suporte para
+uma politica de segurança. Alguns exemplos são: politica de segurança,
+supervisão de pessoal, monitoração e procedimentos de tarefas de
+trabalho.
+Controle de Acesso de Diretiva: Esta categoria visa confinar ou controlar a
+ação do sujeito para forçar ou encorajar o cumprimento das politicas de
+segurança para assim evitar imprevistos. Alguns exemplos são: quadros de
+segurança, cães de guarda, politica de segurança, monitoramento,
+supervisão, procedimento de tarefas de trabalho e treinamento de
+conscientização de segurança.
+Como podem ver, algumas categorias possuem certa semelhança e
+por isso eles podem ser organizados em três categorias que são elas:
+Administrativas, Logicas/técnicas e Físicas.
+Abaixo segue uma breve descrição dessas categorias
+organizacionais.Controle de Acesso Administrativo: Esta categoria tem como objetivo
+principal politicas e procedimento definido pela politica de segurança de
+uma organização para implantar e reforçar o controle de acesso geral.
+Geralmente o controle de acesso administrativo se concentra em duas
+áreas: Pessoal e Praticas Comercial. Alguns exemplos de controle de
+acesso administrativo englobam: politicas, procedimentos, práticas de
+contratação, histórico, verificações, classificação de dados, treinamento
+de segurança, histórico de férias, revisões, supervisão de trabalho,
+controle de pessoal e testes.
+Controle de Acesso Logico/Técnico: Esta categoria se preocupa com
+recursos usados por meio de hardware e/ou software, para fornecer a
+proteção de sistemas. Alguns exemplos são: cartões inteligentes,
+criptografia, senhas estratégicas, biometria, interfaces restritas,
+protocolos seguros, firewalls, roteadores, sistemas de detecção de
+intrusão e níveis de proteção.
+Controle de Acesso Físico: Esta categoria se preocupa com barreiras
+físicas implantadas para garantir que nenhum sujeito tenha acesso ao
+objeto sem permissão. Exemplos de Controle de acesso físico são:
+guardas, cercas, muros, detectores de movimento, câmeras de
+infravermelho, portas devidamente trancadas e monitoradas, cartões
+magnéticos, armadilhas e alarmes.
+Como pode notar estas três categorias organizacionais englobam as
+outras sete mencionadas anteriormente, com essa breve descrição você já
+deve ser capaz de diferenciar uma da outra e saber em qual caso cada
+uma deve ser implantada.Conclusão
+Certamente é notável que o Acesso de Controle é um dos tópicos
+mais importantes dentro da área de segurança da informação, porém sem
+um planejamento prévio qualquer metodologia, técnica ou politica se
+torna ineficaz, pois cada caso é um caso.
+Uma boa pratica é implantar uma politica baseada em camadas,
+pois, nenhum dos mecanismos de controle de acesso apresentados são
+implementados sozinhos, pois um ambiente só se torna seguro quando
+diversas politicas são implementadas em conjunto para reduzir os riscos
+ao máximo.
+Em uma segurança baseada em camadas, o objetivo é proteger o
+seu objeto utilizando níveis de segurança, geralmente a primeira camada
+englobas os recursos do controle de acesso administrativo, a segunda
+engloba os recursos de acesso de controle Logico/Técnico e por fim a
+ultima camada engloba os recursos do controle de acesso fisico.
